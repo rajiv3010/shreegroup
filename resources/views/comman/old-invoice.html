@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<div style="float: left; width: 50%;">
+<img src="https://adyug.com/public/assets/img/logo.png" height="50" width="50" /><br>
+Adyug Classify Pvt. Ltd.<br />
+<p>405, SHALIMAR CORPORATE CENTER,</p>
+<p> SOUTH TUKOGANJ INDORE-452001 (M.P.)</p>
+<p>📞 0731- 49 88 5 88</p>
+<p>📞99 77 000 999, 📞 9 111 9 888 25</p>
+<p>📧 support@adyug.com</p>
+<p>🌐 www.adyug.com | www.TDM.com</p>
+<div>PAN No: AAWCS9402P</div>
+<div>GSTIN: GST00012312AD87</div>
+
+<h2 align ="center"></h2>
+<br />
+</div>
+
+<div style="float: right; width: 50%;">
+
+<b>To,</b><br>
+{{Auth::user()->first_name}} {{Auth::user()->last_name}}<br>
+{{Auth::user()->address}} , {{Auth::user()->address1}}<br>
+{{Auth::user()->city}}
+ State: {{Auth::user()->state}}<br>
+<br>
+<div>Email ID: {{Auth::user()->email}}</div>
+<div>Phone: {{Auth::user()->mobile}}</div>
+<div>Invoice Date: {{Auth::user()->dob}}</div>
+</div>
+<br />
+<table border="1" width="100%" cellpadding="0" cellspacing="0"> 
+        
+    <tr align="center">
+    <th>Invoice Date</th>
+    <th>User ID</th>
+    <th>Reference ID</th>
+    <th>PAN</th>
+    </tr>
+    <tr align="center">
+        <td>{{Auth::user()->created_at}}</td>
+        <td>{{Auth::user()->user_key}}</td>
+        <td>{{Auth::user()->user_key}}</td>
+        <td>{{Auth::user()->pan}}</td>
+    </tr>
+    </table>
+    <br>
+<table border="1" width="100%" cellpadding="0" cellspacing="0"> 
+    <col width="60%"><col width="40%" />     
+    <tr>
+    <th>Particulars</th>
+    <th>Amount</th>
+    </tr>
+    <tbody>
+        <tr>
+                <td>
+                {{Auth::user()->package->name}}
+                </td>   @php  $newAmount = Auth::user()->package->amount+168.50;
+                            $tax = $newAmount*18/100;
+                $newPackageAmount = $newAmount+$tax+0.17;
+                @endphp
+                <td align="right"><i class="fa fa-inr" aria-hidden="true"></i>₹ {{Auth::user()->package->amount}}</td>
+                </tr> 
+                <tr>
+                <td align="right"> Redeem Card Charge</td>
+                <td align="right">₹ 168.50</td>
+                </tr>
+                <tr>
+                <td align="right"> GGST @ 18%</td>
+                <td align="right">₹ {{$tax}}</td>
+                </tr>
+                <tr>
+                <th align="right">Total</th>
+                <td align="right">₹ {{$newPackageAmount}}</td>
+        </tr>     
+
+</tbody>
+</table>
+<br />
+
+<div><b>For Adyug Pvt. Ltd.</b></div>
+<br />
+<br />
+<div><p align="center">***This is a digital invoice hence signature not required. ***</p></div>
+</body>
+</html>

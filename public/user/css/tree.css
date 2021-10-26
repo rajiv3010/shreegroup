@@ -1,0 +1,68 @@
+
+
+<style type="text/css">
+  .red{
+  border: 3px solid red;
+  border-radius: 50%
+}
+.green{
+  border: 3px solid green;
+  border-radius: 50%
+}
+
+/*---------- bubble tooltip -----------*/
+.leftTableButton{cursor: pointer}
+.rightTableButton{cursor: pointer}
+
+a.tt{
+position:relative;
+z-index:24;
+color:#3CA3FF;
+font-weight:normal;
+text-decoration:none;
+}
+a.tt span{ display: none; }
+
+/*background:; ie hack, something must be changed in a for ie to execute it*/
+a.tt:hover{ z-index:25; color: #aaaaff; background:;}
+a.tt:hover span.tooltip{
+display:block;
+position:absolute;
+top:0px; left:0;
+padding: 15px 0 0 0;
+width:250px;
+color: #993300;
+text-align: center;
+filter: alpha(opacity:95);
+KHTMLOpacity: 0.95;
+MozOpacity: 0.95;
+opacity: 0.95;
+}
+a.tt:hover span.top{
+display: block;
+padding: 30px 8px 0;
+background: url(bubble.gif) no-repeat top;
+}
+a.tt:hover span.middle{ /* different middle bg for stretch */
+display: block;
+padding: 0 8px;
+background: url(bubble_filler.gif) repeat bottom;
+
+}
+
+.darktable{
+  background-color: white;
+  margin-left: 52px;
+}
+.middlelast{
+     background-color: white;
+    position: absolute;
+    right: 238px;
+}
+a.tt:hover span.bottom{
+display: block;
+padding:3px 8px 10px;
+color: #548912;
+background: 'loading...' no-repeat bottom;
+}
+</style>
